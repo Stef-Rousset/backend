@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 // import des routes
-app.use('/api/routes', stuffRoutes);
+app.use('/api/stuff', stuffRoutes);
 
 
 module.exports = app;
