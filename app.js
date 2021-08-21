@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
 
 const app = express();
+
+require('dotenv').config();
+const mongoPassword = process.env.MONGOPASSWORD
 //connexion à mongoDB
-mongoose.connect('mongodb+srv://stephanie:TestMongOC@clusteroc.mmc8w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://stephanie:${mongoPassword}@clusteroc.mmc8w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority` ,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
