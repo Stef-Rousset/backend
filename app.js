@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 const app = express();
+const path = require('path');
 
 require('dotenv').config();
 const mongoPassword = process.env.MONGOPASSWORD
@@ -22,6 +23,8 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+// images
+app.use('/images', express.static(path.join(__dirname, 'images')));
 // import des routes
 app.use('/api/stuff', stuffRoutes);
 app.use('/api/auth', userRoutes);
