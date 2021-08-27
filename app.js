@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 });
-
+//middleware global pour transfo le corps json des requetes en objets JS
 app.use(bodyParser.json());
 // images
 app.use('/images', express.static(path.join(__dirname, 'images')));
